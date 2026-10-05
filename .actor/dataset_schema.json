@@ -1,0 +1,56 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "rank": {
+                "type": "integer",
+                "title": "Rank"
+            },
+            "title": {
+                "type": "string",
+                "title": "Movie Title"
+            },
+            "year": {
+                "type": "integer",
+                "title": "Release Year"
+            },
+            "cinescore": {
+                "type": "number",
+                "title": "Composite CineScore (0-100)"
+            },
+            "imdb_rating": {
+                "type": "number",
+                "title": "IMDb Rating"
+            },
+            "rotten_tomatoes_pct": {
+                "type": "integer",
+                "title": "Rotten Tomatoes (%)"
+            },
+            "metacritic_score": {
+                "type": "integer",
+                "title": "Metacritic Score"
+            },
+            "letterboxd_rating": {
+                "type": "number",
+                "title": "Letterboxd Rating (0-5)"
+            },
+            "director": {
+                "type": "string",
+                "title": "Director"
+            },
+            "genres": {
+                "type": "array",
+                "title": "Genres"
+            },
+            "box_office_million_usd": {
+                "type": "number",
+                "title": "Box Office ($M)"
+            },
+            "oscar_wins": {
+                "type": "integer",
+                "title": "Oscar Wins"
+            }
+        }
+    }
+}
