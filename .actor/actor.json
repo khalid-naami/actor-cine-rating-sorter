@@ -1,0 +1,16 @@
+{
+    "actorSpecification": 1,
+    "name": "cine-rating-sorter-intelligence",
+    "title": "CineScore Multi-Platform Movie Rating Sorter & Top 100 Masterpieces",
+    "description": "Multi-platform movie rating aggregator & sorter (IMDb, Rotten Tomatoes, Metacritic, Letterboxd) inspired by DidierRLopes/SortMoviesPerRating. Features composite CineScore algorithm, Top 100 masterpieces catalog, and bulk title parser.",
+    "version": "1.0.0",
+    "meta": {
+        "template": "python-empty"
+    },
+    "dockerfile": "./Dockerfile",
+    "input": "./input_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "output": "./output_schema.json"
+}
