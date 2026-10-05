@@ -1,0 +1,107 @@
+{
+    "title": "CineScore Movie Rating Sorter Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "mode": {
+            "title": "Operation Mode",
+            "type": "string",
+            "description": "Select whether to explore the curated Top 100 All-Time Masterpieces or parse your own custom list of movie titles.",
+            "default": "Top 100 All-Time Masterpieces",
+            "editor": "select",
+            "enum": [
+                "Top 100 All-Time Masterpieces",
+                "Parse Custom Movie List"
+            ]
+        },
+        "rawMovieTitles": {
+            "title": "Custom Movie Titles (One per line)",
+            "type": "string",
+            "description": "Used when mode is 'Parse Custom Movie List'. Paste titles like:\n1. Inception (2010)\n2. The Dark Knight\n3. Spirited Away",
+            "editor": "textarea",
+            "default": "Inception (2010)\nThe Dark Knight\nInterstellar\nSpirited Away\nPulp Fiction\nThe Godfather\nParasite (2019)\nWhiplash\nOppenheimer\nFight Club"
+        },
+        "sortBy": {
+            "title": "Sort Criterion",
+            "type": "string",
+            "description": "Metric to rank films by.",
+            "default": "CineScore (0-100)",
+            "editor": "select",
+            "enum": [
+                "CineScore (0-100)",
+                "IMDb Rating (0-10)",
+                "Rotten Tomatoes (%)",
+                "Metacritic Score (0-100)",
+                "Letterboxd (0-5)",
+                "Release Year",
+                "Box Office ($M)",
+                "Oscar Wins"
+            ]
+        },
+        "ascending": {
+            "title": "Ascending Order",
+            "type": "boolean",
+            "description": "Sort in ascending order (default is False: highest rating first).",
+            "default": false
+        },
+        "genreFilter": {
+            "title": "Genre Filter",
+            "type": "string",
+            "description": "Filter by cinematic genre or 'All Genres'.",
+            "default": "All Genres",
+            "editor": "select",
+            "enum": [
+                "All Genres",
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Crime",
+                "Drama",
+                "Fantasy",
+                "History",
+                "Mystery",
+                "Sci-Fi",
+                "Thriller",
+                "Western"
+            ]
+        },
+        "minImdb": {
+            "title": "Minimum IMDb Rating",
+            "type": "number",
+            "description": "Lower threshold for IMDb rating (0.0 to 10.0).",
+            "default": 0.0,
+            "minimum": 0.0,
+            "maximum": 10.0
+        },
+        "minYear": {
+            "title": "Minimum Release Year",
+            "type": "integer",
+            "description": "Earliest release year.",
+            "default": 1950,
+            "minimum": 1900,
+            "maximum": 2026
+        },
+        "maxYear": {
+            "title": "Maximum Release Year",
+            "type": "integer",
+            "description": "Latest release year.",
+            "default": 2026,
+            "minimum": 1900,
+            "maximum": 2026
+        },
+        "searchQuery": {
+            "title": "Search Query (Title, Director, Cast)",
+            "type": "string",
+            "description": "Optional keyword search filter.",
+            "default": "",
+            "editor": "textfield"
+        },
+        "apiKey": {
+            "title": "Apify API Token / Custom Key",
+            "type": "string",
+            "description": "Optional Apify API token or custom authentication key for MCP and programmatic triggers.",
+            "editor": "textfield"
+        }
+    }
+}
