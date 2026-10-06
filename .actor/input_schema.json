@@ -1,41 +1,61 @@
 {
-    "title": "CineScore Movie Rating Sorter Input",
+    "title": "CineScore Universe Rating Sorter Input",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
+        "mediaCategory": {
+            "title": "Media Universe Category",
+            "type": "string",
+            "description": "Select the universe format: All Media Universe, Top 100 Movies, Top 100 TV Series, Top 100 Anime Series, Top Anime Movies, Top 100 Cartoons, Top 100 Animated Feature Films, or Hall of Fame Legendary Episodes.",
+            "default": "All Media Universe",
+            "editor": "select",
+            "enum": [
+                "All Media Universe",
+                "🎬 Top 100 Movies",
+                "📺 Top 100 TV Series",
+                "🎌 Top 100 Anime Series",
+                "🎌 Top Anime Movies",
+                "🎨 Top 100 Cartoons",
+                "🎨 Top 100 Animated Feature Films",
+                "🏆 Hall of Fame Legendary Episodes"
+            ]
+        },
         "mode": {
             "title": "Operation Mode",
             "type": "string",
-            "description": "Select whether to explore the curated Top 100 All-Time Masterpieces or parse your own custom list of movie titles.",
-            "default": "Top 100 All-Time Masterpieces",
+            "description": "Select whether to explore the curated Universe Catalog or parse your own custom list of titles.",
+            "default": "Universe Catalog & Top Rankings",
             "editor": "select",
             "enum": [
-                "Top 100 All-Time Masterpieces",
+                "Universe Catalog & Top Rankings",
                 "Parse Custom Movie List"
             ]
         },
         "rawMovieTitles": {
-            "title": "Custom Movie Titles (One per line)",
+            "title": "Custom Media Titles (One per line)",
             "type": "string",
-            "description": "Used when mode is 'Parse Custom Movie List'. Paste titles like:\n1. Inception (2010)\n2. The Dark Knight\n3. Spirited Away",
+            "description": "Used when mode is 'Parse Custom Movie List'. Paste titles like:\n1. Breaking Bad\n2. Attack on Titan\n3. Spirited Away\n4. Avatar: The Last Airbender",
             "editor": "textarea",
-            "default": "Inception (2010)\nThe Dark Knight\nInterstellar\nSpirited Away\nPulp Fiction\nThe Godfather\nParasite (2019)\nWhiplash\nOppenheimer\nFight Club"
+            "default": "Breaking Bad\nAttack on Titan\nSpirited Away\nThe Dark Knight\nAvatar: The Last Airbender\nOzymandias\nArcane\nFullmetal Alchemist: Brotherhood\nSpider-Man: Across the Spider-Verse\nSuccession"
         },
         "sortBy": {
             "title": "Sort Criterion",
             "type": "string",
-            "description": "Metric to rank films by.",
+            "description": "Metric to rank items by.",
             "default": "CineScore (0-100)",
             "editor": "select",
             "enum": [
                 "CineScore (0-100)",
                 "IMDb Rating (0-10)",
+                "MyAnimeList (MAL Score)",
                 "Rotten Tomatoes (%)",
                 "Metacritic Score (0-100)",
                 "Letterboxd (0-5)",
                 "Release Year",
                 "Box Office ($M)",
-                "Oscar Wins"
+                "Oscar Wins",
+                "Seasons Count",
+                "Episodes Count"
             ]
         },
         "ascending": {
@@ -55,14 +75,20 @@
                 "Action",
                 "Adventure",
                 "Animation",
+                "Anime",
                 "Biography",
+                "Comedy",
                 "Crime",
+                "Documentary",
                 "Drama",
                 "Fantasy",
                 "History",
+                "Horror",
                 "Mystery",
+                "Romance",
                 "Sci-Fi",
                 "Thriller",
+                "War",
                 "Western"
             ]
         },
@@ -78,7 +104,7 @@
             "title": "Minimum Release Year",
             "type": "integer",
             "description": "Earliest release year.",
-            "default": 1950,
+            "default": 1930,
             "minimum": 1900,
             "maximum": 2026
         },
@@ -91,7 +117,7 @@
             "maximum": 2026
         },
         "searchQuery": {
-            "title": "Search Query (Title, Director, Cast)",
+            "title": "Search Query (Title, Director, Studio, Creator)",
             "type": "string",
             "description": "Optional keyword search filter.",
             "default": "",
