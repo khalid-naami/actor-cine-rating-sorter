@@ -6,6 +6,7 @@ from apify import Actor
 from src.movies_database import MASTER_MOVIES_DB
 from src.master_catalog import MasterCatalog
 from src.rating_sorter_engine import RatingSorterEngine
+from src.posters_data import get_media_poster
 
 async def main() -> None:
     async with Actor:
@@ -84,6 +85,7 @@ async def main() -> None:
                 "series_title": item.get("series_title"),
                 "episode_title": item.get("episode_title"),
                 "top_episode": item.get("top_episode"),
+                "poster_url": get_media_poster(item),
                 "streaming_platforms": item.get("streaming_services", []),
                 "plot_synopsis": item.get("plot") or item.get("synopsis")
             })
