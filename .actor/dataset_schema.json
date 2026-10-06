@@ -1,55 +1,121 @@
 {
     "actorSpecification": 1,
     "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "additionalProperties": true,
         "properties": {
             "rank": {
-                "type": "integer",
-                "title": "Rank"
+                "type": ["integer", "null"],
+                "title": "Rank #"
             },
             "title": {
-                "type": "string",
-                "title": "Movie Title"
+                "type": ["string", "null"],
+                "title": "Title"
+            },
+            "media_type": {
+                "type": ["string", "null"],
+                "title": "Media Type"
             },
             "year": {
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "Release Year"
             },
             "cinescore": {
-                "type": "number",
+                "type": ["number", "null"],
                 "title": "Composite CineScore (0-100)"
             },
             "imdb_rating": {
-                "type": "number",
+                "type": ["number", "null"],
                 "title": "IMDb Rating"
             },
+            "imdb_votes": {
+                "type": ["string", "null"],
+                "title": "IMDb Votes"
+            },
+            "mal_score": {
+                "type": ["number", "null"],
+                "title": "MyAnimeList Score"
+            },
             "rotten_tomatoes_pct": {
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "Rotten Tomatoes (%)"
             },
             "metacritic_score": {
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "Metacritic Score"
             },
             "letterboxd_rating": {
-                "type": "number",
+                "type": ["number", "null"],
                 "title": "Letterboxd Rating (0-5)"
             },
-            "director": {
-                "type": "string",
-                "title": "Director"
+            "director_or_studio": {
+                "type": ["string", "null"],
+                "title": "Director / Studio / Creators"
             },
             "genres": {
-                "type": "array",
+                "type": ["array", "null"],
                 "title": "Genres"
             },
-            "box_office_million_usd": {
-                "type": "number",
-                "title": "Box Office ($M)"
+            "seasons_count": {
+                "type": ["integer", "null"],
+                "title": "Seasons Count"
             },
-            "oscar_wins": {
-                "type": "integer",
-                "title": "Oscar Wins"
+            "episodes_count": {
+                "type": ["integer", "null"],
+                "title": "Episodes Count"
+            },
+            "series_title": {
+                "type": ["string", "null"],
+                "title": "Series Title"
+            },
+            "episode_title": {
+                "type": ["string", "null"],
+                "title": "Episode Title"
+            },
+            "top_episode": {
+                "type": ["string", "object", "null"],
+                "title": "Highest Rated Episode"
+            },
+            "streaming_platforms": {
+                "type": ["array", "null"],
+                "title": "Streaming Platforms"
+            },
+            "plot_synopsis": {
+                "type": ["string", "null"],
+                "title": "Plot Synopsis"
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Universe Leaderboard",
+            "transformation": {
+                "fields": [
+                    "rank",
+                    "title",
+                    "media_type",
+                    "year",
+                    "cinescore",
+                    "imdb_rating",
+                    "mal_score",
+                    "rotten_tomatoes_pct",
+                    "director_or_studio"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "rank": { "label": "#", "format": "number" },
+                    "title": { "label": "Title", "format": "text" },
+                    "media_type": { "label": "Format", "format": "text" },
+                    "year": { "label": "Year", "format": "number" },
+                    "cinescore": { "label": "CineScore", "format": "number" },
+                    "imdb_rating": { "label": "IMDb ⭐", "format": "number" },
+                    "mal_score": { "label": "MAL ⭐", "format": "number" },
+                    "rotten_tomatoes_pct": { "label": "RT 🍅", "format": "number" },
+                    "director_or_studio": { "label": "Creator / Studio", "format": "text" }
+                }
             }
         }
     }
