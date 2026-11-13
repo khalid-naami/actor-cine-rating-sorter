@@ -1,0 +1,15 @@
+{
+    "actorKeyValueStoreSchemaVersion": 1,
+    "title": "CineScore Universe Key-Value Store",
+    "description": "Key-value store schema for CineScore Multi-Platform Movie Rating Sorter.",
+    "collections": {
+        "default": {
+            "title": "Default Output Records",
+            "description": "Ranked leaderboard executive summary stored under OUTPUT.",
+            "keyPrefix": "OUTPUT",
+            "contentTypes": [
+                "application/json"
+            ]
+        }
+    }
+}
