@@ -37,18 +37,21 @@ for ep in TOP_SERIES_EPISODES:
     ep_item = dict(ep)
     ep_item["category"] = "Live-Action Series"
     ep_item["media_type"] = "legendary_episode"
+    ep_item["cinescore"] = round(float(ep_item.get("imdb_rating", 0.0)) * 10.0, 1)
     HALL_OF_FAME_EPISODES.append(ep_item)
 
 for ep in TOP_ANIME_EPISODES:
     ep_item = dict(ep)
     ep_item["category"] = "Anime Series"
     ep_item["media_type"] = "legendary_episode"
+    ep_item["cinescore"] = round(float(ep_item.get("imdb_rating", 0.0)) * 10.0, 1)
     HALL_OF_FAME_EPISODES.append(ep_item)
 
 for ep in TOP_CARTOON_EPISODES:
     ep_item = dict(ep)
     ep_item["category"] = "Cartoon / Animation"
     ep_item["media_type"] = "legendary_episode"
+    ep_item["cinescore"] = round(float(ep_item.get("imdb_rating", 0.0)) * 10.0, 1)
     HALL_OF_FAME_EPISODES.append(ep_item)
 
 # Sort Hall of Fame Episodes by IMDb rating descending
