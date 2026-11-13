@@ -96,9 +96,9 @@
             "title": "Minimum IMDb Rating",
             "type": "number",
             "description": "Lower threshold for IMDb rating (0.0 to 10.0).",
-            "default": 0.0,
-            "minimum": 0.0,
-            "maximum": 10.0
+            "default": 0,
+            "minimum": 0,
+            "maximum": 10
         },
         "minYear": {
             "title": "Minimum Release Year",
@@ -127,7 +127,8 @@
             "title": "Apify API Token / Custom Key",
             "type": "string",
             "description": "Optional Apify API token or custom authentication key for MCP and programmatic triggers.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "isSecret": true
         }
     }
 }
