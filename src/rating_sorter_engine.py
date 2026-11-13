@@ -81,7 +81,8 @@ class RatingSorterEngine:
                     any(q in c.lower() for c in m.get("creators", []))
                 )
                 cast_match = any(q in actor.lower() for actor in m.get("cast", []))
-                plot_match = q in m.get("plot", "").lower()
+                plot_text = (m.get("plot") or m.get("synopsis") or "").lower()
+                plot_match = q in plot_text
                 if not (title_match or dir_match or cast_match or plot_match):
                     continue
 
@@ -156,7 +157,10 @@ class RatingSorterEngine:
         """Parses a list of titles pasted or uploaded by user and matches ratings across universe."""
         lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
         matched_results = []
-        all_catalog = MasterCatalog.get_items_by_category("All Media Universe")
+        all_catalog = (
+            MasterCatalog.get_items_by_category("All Media Universe")
+            + MasterCatalog.get_items_by_category("🏆 Hall of Fame Legendary Episodes")
+        )
 
         for line in lines:
             clean_title = re.sub(r'^\d+[\.\)\-]\s*', '', line)
