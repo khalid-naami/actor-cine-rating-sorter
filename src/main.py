@@ -120,6 +120,9 @@ async def main() -> None:
             ]
         }
         await Actor.set_value("OUTPUT", summary_payload)
+        if not dataset_records:
+            await Actor.fail(status_message="No cine rating records were produced.")
+            return
         Actor.log.info("Executive summary report written to Key-Value Store key 'OUTPUT'.")
 
 if __name__ == "__main__":
